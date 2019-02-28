@@ -23,7 +23,14 @@ public class TestAnalytics {
 
     @Test
     public void testMasCorta(){
+        String [] res1 = {"casa"};
+        String [] res2 = {"mia","ala"};
 
+        String [] val1 = Analytics.masLarga("casa casita casototota");
+        String [] val2 = Analytics.masLarga("casa mia cosa ala");
+
+        assertEquals(true, Arrays.equals(res1,val1),"Should return {casa}");
+        assertEquals(true,Arrays.equals(res2,val2),"Should return {mia,ala}");
     }
 
     @Test

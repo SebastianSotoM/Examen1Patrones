@@ -20,4 +20,22 @@ public class Analytics {
         }
         return longWords.toArray(new String[longWords.size()]);
     }
+    
+    public static String[] masCorta(String sentence){
+        String [] words = sentence.split(" |,");
+        ArrayList<String> shortWords = new ArrayList<>();
+        String shortest = "";
+        for (int i = 0; i < words.length; i++) {
+            if(words[i].length() < shortest.length()){
+                shortest = words[i];
+            }
+        }
+        shortWords.add(shortest);
+        for (int i = 0; i < words.length; i++) {
+            if(words[i].length() == shortest.length() && !shortest.equals(words[i])){
+                shortWords.add(words[i]);
+            }
+        }
+        return shortWords.toArray(new String[shortWords.size()]);
+    }
 }
