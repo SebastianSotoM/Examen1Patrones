@@ -18,13 +18,13 @@ public class Analytics {
                 longWords.add(words[i]);
             }
         }
-        return longWords.toArray(new String[longWords.size()]);
+        return ordenarListaEnArreglo(longWords);
     }
     
     public static String[] masCorta(String sentence){
         String [] words = sentence.split(" |,");
         ArrayList<String> shortWords = new ArrayList<>();
-        String shortest = "";
+        String shortest = words[0];
         for (int i = 0; i < words.length; i++) {
             if(words[i].length() < shortest.length()){
                 shortest = words[i];
@@ -36,6 +36,11 @@ public class Analytics {
                 shortWords.add(words[i]);
             }
         }
-        return shortWords.toArray(new String[shortWords.size()]);
+        return ordenarListaEnArreglo(shortWords);
+    }
+
+    public static String [] ordenarListaEnArreglo(ArrayList<String> lista){
+        Collections.sort(lista);
+        return lista.toArray(new String[lista.size()]);
     }
 }

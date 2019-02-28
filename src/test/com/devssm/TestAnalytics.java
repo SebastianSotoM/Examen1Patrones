@@ -17,25 +17,25 @@ public class TestAnalytics {
         String [] val1 = Analytics.masLarga("casa casita casototota");
         String [] val2 = Analytics.masLarga("casa,mia,cosa");
 
-        assertEquals(true, Arrays.equals(res1,val1),"Should return {casototota}");
-        assertEquals(true,Arrays.equals(res2,val2),"Should return {casa,cosa}");
+        assertEquals(res1[0], val1[0],"Should return casototota");
+
+        assertEquals(res2[0], val2[0],"Should return casa");
+        assertEquals(res2[1], val2[1],"Should return cosa");
     }
 
     @Test
     public void testMasCorta(){
         String [] res1 = {"casa"};
-        String [] res2 = {"mia","ala"};
+        String [] res2 = {"ala","mia"};
 
-        String [] val1 = Analytics.masLarga("casa casita casototota");
-        String [] val2 = Analytics.masLarga("casa mia cosa ala");
+        String [] val1 = Analytics.masCorta("casa casita casototota");
+        String [] val2 = Analytics.masCorta("casa mia cosa ala");
 
-        assertEquals(true, Arrays.equals(res1,val1),"Should return {casa}");
-        assertEquals(true,Arrays.equals(res2,val2),"Should return {mia,ala}");
-    }
+        assertEquals(res1[0], val1[0],"Should return casa");
 
-    @Test
-    public void testOrdenAlfabetico(){
+        assertEquals(res2[0], val2[0],"Should return ala");
 
+        assertEquals(res2[1], val2[1],"Should return mia");
     }
 
     @Test
